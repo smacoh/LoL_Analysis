@@ -58,7 +58,7 @@ First I plotted a histogram of the distribution of Barons killed.
 <iframe
   src="assets/fig-baron-kills.html"
   width="800"
-  height="300"
+  height="500"
   frameborder="0"
 ></iframe>
 
@@ -73,4 +73,6 @@ Then I plotted a histogram of the distribution of Dragons killed.
   frameborder="0"
 ></iframe>
 
-The histogram is slightly normal and right skewed, showing that the most common number of dragons killed ranges from one to four. 
+The histogram is slightly normal and right skewed, showing that the most common number of dragons killed ranges from one to four. This is reasonable as dragons are an objective that spawn more frequently and do not give as significant of a buff as Barons.
+
+I also plotted 
