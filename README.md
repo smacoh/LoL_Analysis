@@ -11,7 +11,7 @@ The objective of the game is to defeat the enemy team by destroying their "Nexus
 
 ### Introducing the Dataset
 
-The dataset has a total of 150180 rows and 161 columns. An explanation of the columns relevant to my analysis and are shown below:
+The dataset has a total of 150180 rows and 161 columns. For each match, there are ten rows for each of the ten individual players and two rows for each of the two teams. An explanation of the columns relevant to my analysis and are shown below:
 
 | **Column Name** | **Definition** |
 | ------------------- | ------------------------------------------------------------ |
@@ -31,3 +31,18 @@ The dataset has a total of 150180 rows and 161 columns. An explanation of the co
 | `towers` | number of towers broken per team |
 | `inhibitors` | number of inhibitors broken per team |
 
+---
+
+## Data Cleaning and Exploratory Data Analysis
+
+The dataset The first step in cleaning the dataset was dropping the columns pertaining to players, rather than teams. This is because my analysis focuses on which teams won and what objectives they took. Next, I looked at the `datacompleteness` column and found that rows with values of `partial` for `datacompleteness` were missing values for the columns `firstdragon`, `dragons`, `firstherald`, `firstbaron`, `barons`, `towers`, `inhibitors`, which are all relevant to my analysis. As a result, I dropped the rows where `datacompletness` is `partial`, leaving me with only rows where `datacompletness` is `complete`. Then I kept only the rows relevant to my analysis: `gameid`, `side`, `result`, `kills`,	`firstdragon`,	`dragons`, `firstherald`, `firstbaron`, `barons`, `towers`,	`inhibitors`. Finally, I converted the binary columns to booleans, where values of 0 correspond to False and values of 0 correspond to True.
+
+The head of the cleaned DataFrame is below:
+
+| gameid                | side   | result   |   kills | firstdragon   |   dragons | firstherald   | firstbaron   |   barons |   towers |   inhibitors |
+|:----------------------|:-------|:---------|--------:|:--------------|----------:|:--------------|:-------------|---------:|---------:|-------------:|
+| ESPORTSTMNT01_2690210 | Blue   | False    |       9 | False         |         1 | True          | False        |        0 |        3 |            0 |
+| ESPORTSTMNT01_2690210 | Red    | True     |      19 | True          |         3 | False         | False        |        0 |        6 |            1 |
+| ESPORTSTMNT01_2690219 | Blue   | False    |       3 | False         |         1 | True          | False        |        0 |        3 |            0 |
+| ESPORTSTMNT01_2690219 | Red    | True     |      16 | True          |         4 | False         | True         |        2 |       11 |            2 |
+| ESPORTSTMNT01_2690227 | Blue   | True     |      14 | True          |         4 | False         | True         |        1 |       11 |            2 |
