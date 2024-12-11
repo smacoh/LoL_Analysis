@@ -7,7 +7,7 @@ by Samuel Cho (sjc006@ucsd.edu)
 
 [League of Legends](https://en.wikipedia.org/wiki/League_of_Legends) is a massively popular multiplayer online battle arena game developed and published by Riot Games. The game currently has millions of active players, which can be largely attributed to its thriving competitive esports scene. Tournaments are held every year where top players compete for substantial prize pools with millions of fans watching worldwide. The dataset I analyzed comes from [Oracle's Elixir](https://oracleselixir.com/tools/downloads), and consists of match data from professional games played in 2022, including extensive statistics on player and team performances, as well as game results.
 
-The objective of the game is to defeat the enemy team by destroying their "Nexus," a structure located their defenses defenses. In order to increase their chances of doing so, teams must take key objectives to gain an advantage over their opponents. One of the most crucial objectives is killing the "Baron," the most powerful monster in League of Legends. The Baron spawns 20 minutes into the game and respawns 6 minues after it has been killed. When a team kills the Baron, they are grated buffs such as increased damaged, ability power, and strengthed allied minions. Consequently, killing the first Baron is often deciding factor in the outcome of the game, making it a top priority for both teams. Therefore, my analysis focuses on the key objectives of League of Legends so that new and aspiring players can better understand the importance of objectives and how they affect the outcome of a game. More specifically, this analysis aims to answer the question: **How impactful is killing the first Baron on the result of the game?**
+League of Legends is a 5 versus 5 player game split into three lanes, where the objective of is to defeat the enemy team by destroying their "Nexus," a structure located behind enemy defenses. In order to increase the chances of doing so, teams must take key objectives to gain an advantage over their opponents. One of the most crucial objectives is killing the "Baron," the most powerful monster in League of Legends. The Baron spawns 20 minutes into the game and respawns 6 minues after it has been killed. When a team kills the Baron, they are granted buffs such as increased damaged, ability power, and strengthed allied minions. Consequently, killing the first Baron is often a deciding factor in the outcome of the game, making it a top priority for both teams. Therefore, my analysis focuses on the key objectives of League of Legends so that new and aspiring players can better understand the importance of objectives and how they affect the outcome of a game. More specifically, this analysis aims to answer the question: **How impactful is killing the first Baron on the result of the game?**
 
 ### Introducing the Dataset
 
@@ -58,35 +58,39 @@ First I plotted a histogram of the distribution of Barons killed.
 <iframe
   src="assets/fig-baron-kills.html"
   width="800"
-  height="400"
+  height="415"
   frameborder="0"
 ></iframe>
 
 This histogram is right skewed and shows that zero and one were the most common number of barons killed. This makes sense as the majority of the time, a team either kills no barons and loses or kills one baron and wins shortly after, making it less common for more than one baron to be killed a game.
 
-Then I plotted a histogram of the distribution of Dragons killed.
+Then I plotted a histogram of the distribution of dragons killed. Killing dragons is another objective where similar to Baron's, provides the team that kills a dragon small buffs such as increased damage or armor.
 
 <iframe
   src="assets/fig-dragon-kills.html"
   width="800"
-  height="400"
+  height="415"
   frameborder="0"
 ></iframe>
 
-The histogram is slightly normal and right skewed, showing that the most common number of dragons killed ranges from one to four. This is reasonable as dragons are an objective that spawn more frequently and do not give as significant of a buff as Barons.
+The histogram is slightly normal and right skewed, showing that the most common number of dragons killed ranges from one to four. This is reasonable as dragons are an objective that spawn more frequently and do not give as significant of a buff as Barons, meaning more are killed a game.
 
-I also plotted the distribution of towers broken.
+I also plotted the distribution of towers broken. Towers are powerful structures that protect the Nexus. Layers of towers must be broken in order to be able to reach and destroy the Nexus.
 
 <iframe
   src="assets/fig-towers-broken.html"
   width="800"
-  height="400"
+  height="415"
   frameborder="0"
 ></iframe>
 
 The plot follows a bimodal distribution as there are two distinct peaks. This is most likely due to the fact that losing teams are likely to break from a range of one to five turrets a game (first peak) while winning teams are likely to break from a range of 8 to 11 towers a game (second peak).
 
-Lastly, I plotted the distribution of inhibitors broken
+Lastly, I plotted the distribution of inhibitors broken. Inhibitors are another very important objective. There is one inhibitor for each of the three lanes, located closer to the Nexus. Breaking an inhibitor causes "Super Minions," which are far stronger than regular minions, to spawn in the lane in which the inhibitor was broken.
 
-
-
+<iframe
+  src="assets/fig-inhibitors-broken.html"
+  width="800"
+  height="415"
+  frameborder="0"
+></iframe>
