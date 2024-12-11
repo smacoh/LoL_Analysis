@@ -152,4 +152,12 @@ I believe that the column `ban5` is NMAR, or not missing at random, because ther
 
 ### Missing Dependency
 
-In the original dataset, I found that missingness of column `pick1` seemed to 
+In the original dataset, I found that the missingness of column `pick1` seemed to have a trend to it, possibly associated with the `league` column. Therefore I decided to test if the missingness of `pick1` depends on `league`. To test this, I conducted a permutation test with the following ________:
+
+- Null Hypothesis: The distribution of `league` when `pick1` is missing is the same as the distribution of `league` when `pick1` is not missing.
+
+- Alternative Hypothesis: The distribution of `league` when `pick1` is missing is **not** the same as the distribution of `league` when `pick1` is not missing.
+
+- Test Statistic: Total Variation Distance (TVD)
+
+- Significance Level: 0.05
