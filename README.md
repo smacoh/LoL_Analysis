@@ -35,6 +35,8 @@ The dataset has a total of 150180 rows and 161 columns. For each match, there ar
 
 ## Data Cleaning and Exploratory Data Analysis
 
+### Data Cleaning
+
 The dataset The first step in cleaning the dataset was dropping the columns pertaining to players, rather than teams. This is because my analysis focuses on which teams won and what objectives they took. Next, I looked at the `datacompleteness` column and found that rows with values of `partial` for `datacompleteness` were missing values for the columns `firstdragon`, `dragons`, `firstherald`, `firstbaron`, `barons`, `towers`, `inhibitors`, which are all relevant to my analysis. As a result, I dropped the rows where `datacompletness` is `partial`, leaving me with only rows where `datacompletness` is `complete`. Then I kept only the rows relevant to my analysis: `gameid`, `side`, `result`, `kills`,	`firstdragon`,	`dragons`, `firstherald`, `firstbaron`, `barons`, `towers`,	`inhibitors`. Finally, I converted the binary columns to booleans, where values of 0 correspond to False and values of 0 correspond to True.
 
 The head of the cleaned DataFrame is below:
@@ -46,3 +48,16 @@ The head of the cleaned DataFrame is below:
 | ESPORTSTMNT01_2690219 | Blue   | False    |       3 | False         |         1 | True          | False        |        0 |        3 |            0 |
 | ESPORTSTMNT01_2690219 | Red    | True     |      16 | True          |         4 | False         | True         |        2 |       11 |            2 |
 | ESPORTSTMNT01_2690227 | Blue   | True     |      14 | True          |         4 | False         | True         |        1 |       11 |            2 |
+
+### Univariate Analysis
+
+For my univariate analysis, I decided to look at the distributions of different objectives to get a better understanding of the amount of objectives taken by team per game.
+
+First I plotted a histogram of the distribution of Barons killed.
+
+<iframe
+  src="assets/fig_baron_kills.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
