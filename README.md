@@ -162,7 +162,7 @@ In the original dataset, I found that the missingness of column `pick1` seemed t
 
 - Significance Level: 0.05
 
-After performing permutation tests by permutating the `league` column to simulate distributions under the null hypothesis, I plotted the observed test statistic and permutated test statistics.
+After performing permutation tests by permutating the `league` column to simulate distributions under the null hypothesis, I plotted the observed test statistic and permuted test statistics.
 
 <iframe
   src="assets/fig-MAR.html"
@@ -171,7 +171,7 @@ After performing permutation tests by permutating the `league` column to simulat
   frameborder="0"
 ></iframe>
 
-The observed test statistic, 0.173, clearly differs from the permutated test statistics. The resulting p-value is 0.00, which means that under the 0.05 significance level, I reject the null hypothesis, suggesting that the missingness of `pick1` is MAR depdenent on `league`. In other words, the missingness of `pick1` is dependent on `league`.
+The observed test statistic, 0.173, clearly differs from the permuted test statistics. The resulting p-value is 0.00, which means that under the 0.05 significance level, I reject the null hypothesis, suggesting that the missingness of `pick1` is MAR depdenent on `league`. In other words, the missingness of `pick1` is dependent on `league`.
 
 I also tested the missingess dependency of `pick1` on another column, `playoffs`. I conducted a permutation test with the following parameters:
 
@@ -183,7 +183,7 @@ I also tested the missingess dependency of `pick1` on another column, `playoffs`
 
 - Significance Level: 0.05
 
-After performing permutation tests by permutating the `playoffs` column to simulate distributions under the null hypothesis, I plotted the observed test statistic and permutated test statistics.
+After performing permutation tests by permutating the `playoffs` column to simulate distributions under the null hypothesis, I plotted the observed test statistic and permuted test statistics.
 
 <iframe
   src="assets/fig-not-MAR.html"
@@ -192,4 +192,19 @@ After performing permutation tests by permutating the `playoffs` column to simul
   frameborder="0"
 ></iframe>
 
-The plot shows that the observed test statistic, 0.0032, does not deviate much from the permutated test statistics and is therefore not uncommon. The reuslting p-value is 0.284, which under the 0.05 significance level means that I fail to reject the null hypothesis. This suggests that `pick1` is **not** MAR dependent on `playoffs`. In other words, the missingness of `pick1` does not depend on `playoffs`.
+The plot shows that the observed test statistic, 0.0032, does not deviate much from the permuted test statistics and is therefore not uncommon. The reuslting p-value is 0.284, which under the 0.05 significance level means that I fail to reject the null hypothesis. This suggests that `pick1` is **not** MAR dependent on `playoffs`. In other words, the missingness of `pick1` does not depend on `playoffs`.
+
+## Hypothesis Testing
+
+In order to further my analysis on the effect of objectives on the outcome of the game, I conducted a hypothesis test with the following parameters:
+
+- Null Hypothesis: There is no difference in the proportion of wins between games where the first Baron is killed and games where it is not.
+
+- Alternative Hypothesis: The proportion of wins is higher for games where the first Baron is killed.
+
+- Test Statistic: Difference of proportions of games won by the team that killed the first Baron and proportion of games won by the team that **did not** kill the first Baron.
+
+- Significance Level: 0.05
+
+After performing a permutation test with these parameters, I plotted the result:
+
