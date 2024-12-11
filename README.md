@@ -241,3 +241,18 @@ For my final model, I decided to add the features `firstherald` and `inhibitors`
 Furthermore, I decided to use a Random Forest Classifier instead of a Decision Tree Classifier as Decision Tree Classifiers almost always overfit when it has no depth limit. They are also not the best at prediction in general. Random Forest Classifiers address these shortcomings by using multiple decision trees and random subsets of features to make more accurate and robust predictions. For the Random Forest Classifier, I used the hyperparameters `clf__max_depth`, `clf__n_estimators`, and `clf__min_samples_split`. In order to find the best values for these hyperparameters, I performed a grid search to test values of 2 to 50, with steps of 5, 50 to 150, with steps of 50, and 2 to 10, with steps of 2, for `clf__max_depth`, `clf__n_estimators`, and `clf__min_samples_split` respectively. The resulting best parameters after performing a grid search were a `clf__max_depth` of 2, `clf__n_estimators` of 50, and `clf__min_samples_split` of 2.
 
 Ultimately, my final model achieved an accuracy of 0.9614, meaning that is is able to predict approximately 96.14% of data correctly. This number is nearly perfect, and is an immense improvement over my baseline model. The model's performance demonstrates that the added features, `firstherald` and `inhibitors`, provide valuable insight into the game's result. Additionally, the use of Random Forest Classifier instead of Decision Tree Classifier allowed the model to make more accurate predictions by reducing overfitting and recognizing complex patterns in the data. Furthermore, grid search enabled fine-tuning of the parameters, ensuring that the model was optimized.
+
+---
+
+## Fairness Analysis
+
+Players have long debated on whether the Blue side has an advantage over the Red side. Players argue for both sides, but they generally lean towards Blue having an advantage. Thus, I performed a permutation test to answer the question: **Does my model perform words for teams on side Red than it does for teams on side Blue?** For my evaluation metric, I chose accuracy as I am not looking to minimize false positives or false negatives. Rather, my goal is to evaluate how well my model predicts outcomes across both sides. The parameters I used for my permutation test are as follows:
+
+- Null Hypothesis: The classifier's accuracy is the same for both teams on side Blue and teams on side Red, and any differences are due to chance.
+
+- Alternative Hypothesis: The classifier's accuracy is higher for teams on side Blue.
+
+- Test Statistic: Difference in accuracy (Blue - Red)
+
+- Significance Level: 0.05
+
