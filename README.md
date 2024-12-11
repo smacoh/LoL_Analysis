@@ -170,3 +170,26 @@ After performing permutation tests by permutating the `league` column to simulat
   height="430"
   frameborder="0"
 ></iframe>
+
+The observed test statistic, 0.173, clearly differs from the permutated test statistics. The resulting p-value is 0.00, which means that under the 0.05 significance level, I reject the null hypothesis, suggesting that the missingness of `pick1` is MAR depdenent on `league`. In other words, the missingness of `pick1` is dependent on `league`.
+
+I also tested the missingess dependency of `pick1` on another column, `playoffs`. I conducted a permutation test with the following parameters:
+
+- Null Hypothesis: The distribution of `playoffs` when `pick1` is missing is the same as the distribution of `playoffs` when `pick1` is not missing.
+
+- Alternative Hypothesis: The distribution of `playoffs` when `pick1` is missing is **not** the same as the distribution of `playoffs` when `pick1` is not missing.
+
+- Test Statistic: Total Variation Distance (TVD)
+
+- Significance Level: 0.05
+
+After performing permutation tests by permutating the `playoffs` column to simulate distributions under the null hypothesis, I plotted the observed test statistic and permutated test statistics.
+
+<iframe
+  src="assets/fig-not-MAR.html"
+  width="800"
+  height="430"
+  frameborder="0"
+></iframe>
+
+The plot shows that the observed test statistic, 0.0032, does not deviate much from the permutated test statistics and is therefore not uncommon. The reuslting p-value is 0.284, which under the 0.05 significance level means that I fail to reject the null hypothesis. This suggests that `pick1` is **not** MAR dependent on `playoffs`. In other words, the missingness of `pick1` does not depend on `playoffs`.
