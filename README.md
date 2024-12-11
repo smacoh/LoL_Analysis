@@ -235,3 +235,5 @@ When creating my baseline model, I decided to use a Decision Tree Classifier. Fo
 ---
 
 ## Final Model
+
+For my final model, I decided to add the features `firstherald` and `inhibitors`. I chose to add `firstherald` to my model because teams that kill the first herald are more likely to win the game as the herald is a monster that  helps destroy towers, allowing teams to make aggresive plays, gaining an advantage over the opposing team. Additionally, I chose to add `inhibitors` as a feature because of its significance in determining the game's later stages. In order for a team to break an inhibitor, they must first break multiple towers. This means that inhibitors are generally broken towards the end of the game, which allows team to make a final push to destroy the enemy's Nexus.
