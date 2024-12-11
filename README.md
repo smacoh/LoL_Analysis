@@ -58,7 +58,7 @@ First I plotted a histogram of the distribution of Barons killed.
 <iframe
   src="assets/fig-baron-kills.html"
   width="800"
-  height="600"
+  height="300"
   frameborder="0"
 ></iframe>
 
@@ -72,3 +72,5 @@ Then I plotted a histogram of the distribution of Dragons killed.
   height="600"
   frameborder="0"
 ></iframe>
+
+The histogram is slightly normal and right skewed, showing that the most common number of dragons killed ranges from one to four. 
