@@ -58,7 +58,7 @@ First I plotted a histogram of the distribution of Barons killed.
 <iframe
   src="assets/fig-baron-kills.html"
   width="800"
-  height="500"
+  height="450"
   frameborder="0"
 ></iframe>
 
@@ -69,10 +69,19 @@ Then I plotted a histogram of the distribution of Dragons killed.
 <iframe
   src="assets/fig-dragon-kills.html"
   width="800"
-  height="600"
+  height="450"
   frameborder="0"
 ></iframe>
 
 The histogram is slightly normal and right skewed, showing that the most common number of dragons killed ranges from one to four. This is reasonable as dragons are an objective that spawn more frequently and do not give as significant of a buff as Barons.
 
-I also plotted 
+I also plotted the distribution of towers broken.
+
+The plot follows a bimodal distribution as there are two distinct peaks. This is most likely due to the fact that losing teams are likely to break from a range of one to five turrets a game (first peak) while winning teams are likely to break from a range of 8 to 11 towers a game (second peak).
+
+<iframe
+  src="assets/fig-towers-broken.html"
+  width="800"
+  height="450"
+  frameborder="0"
+></iframe>
