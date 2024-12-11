@@ -143,6 +143,7 @@ There is a clear increase in the number of kills as the number of towers broken 
 
 This pivot table is indexed by the `result` and has the averages of the columns `dragons`, `barons`, `towers`, `inhibitors`, `firstdragon`, `firstherald`, `firstbaron`. The columns `firstbaron`, `firstdragon`, and `firstherald` show that 80% of teams that killed the first baron won the game and 58% of teams that killed the first dragon or killed the first herald won the game. Although these winrates are all positive for teams that are the first to kill monster objectives, the winrate for `firstbaron` is much higher, indicating that is the most important and game changing monster objective. Also note that teams that lose, on average, kill close to zero Barons and break close to zero inhibitors. On the other hand, `dragons` shows that losing teams kill at least 1 dragon on average, which suggests that killing one dragon is not as significant as killing one baron. Additionally, the `towers` column shows that winning teams break far more towers than losing teams, with an approximate difference of 6.39 on average.
 
+---
 
 ## Assessment of Missingness
 
@@ -194,6 +195,8 @@ After performing permutation tests by permutating the `playoffs` column to simul
 
 The plot shows that the observed test statistic, 0.0032, does not deviate much from the permuted test statistics and is therefore not uncommon. The reuslting p-value is 0.284, which under the 0.05 significance level means that I fail to reject the null hypothesis. This suggests that `pick1` is **not** MAR dependent on `playoffs`. In other words, the missingness of `pick1` does not depend on `playoffs`.
 
+---
+
 ## Hypothesis Testing
 
 In order to further my analysis on the effect of objectives on the outcome of the game, I conducted a hypothesis test with the following parameters:
@@ -215,4 +218,14 @@ After performing a permutation test with these parameters, I plotted the result:
   frameborder="0"
 ></iframe>
 
-The chance of getting the observed test statistic is clearly rare under the null hypothesis. The resulting p-value is 0.00. Therefore, I reject the null hypothesis that the 
+The chance of getting the observed test statistic is clearly rare under the null hypothesis. The resulting p-value is 0.00. Therefore, I reject the null hypothesis that the the two groups come from the same distribution. This means that teams that kill the first Baron are more likely to win games than teams that did not kill the first Baron.
+
+---
+
+## Framing a Prediction Problem
+
+Knowing how important objectives are to winning in League of Legends, I wanted to predict the results of a game using information about objectives captured. To achieve this, I built a classification model. The prediction problem I want to answer is: **Predict if a team will win or lose a game**. Since there are only two possible outcomes, win or lose, I am performing binary classification. The response variable is `result`, as this is the variable containing information about whether a team won or lost, which is what I am trying to predict. The metric I am using to evaluate my model is accuracy, as there is no class imbalance as `result` is perfectly evenly distributed, with 50% wins and 50% losses. Therefore, accuracy is a valid evaluation metric and another metric is not needed. At the time of prediction, all of the columns in my cleaned DataFrame are known because they are all statistics that can be gathered at any point during the game. In other words, none of the values are missing or unable to be obtained during any point of the game.
+
+---
+
+## Baseline Model
