@@ -58,7 +58,7 @@ First I plotted a histogram of the distribution of Barons killed.
 <iframe
   src="assets/fig-baron-kills.html"
   width="800"
-  height="415"
+  height="425"
   frameborder="0"
 ></iframe>
 
@@ -69,7 +69,7 @@ Then I plotted a histogram of the distribution of dragons killed. Killing dragon
 <iframe
   src="assets/fig-dragon-kills.html"
   width="800"
-  height="415"
+  height="425"
   frameborder="0"
 ></iframe>
 
@@ -80,7 +80,7 @@ I also plotted the distribution of towers broken. Towers are powerful structures
 <iframe
   src="assets/fig-towers-broken.html"
   width="800"
-  height="415"
+  height="425"
   frameborder="0"
 ></iframe>
 
@@ -91,6 +91,35 @@ Lastly, I plotted the distribution of inhibitors broken. Inhibitors are another 
 <iframe
   src="assets/fig-inhibitors-broken.html"
   width="800"
-  height="415"
+  height="425"
   frameborder="0"
 ></iframe>
+
+The histogram is right skewed, similar to the distribution of Baron kills. Zero inhibitors broken is the most common because losing teams most often break no inhibitors at all, while winning teams break at least one, which can be seen in the plot as the height of bar corresponding to zero inhibitors broken is approximately the same height as the bars for one and 2 inhibitors broken, which correspond to winning teams.
+
+### Bivariate Analysis
+
+For my bivariate analysis, I decided to create visualizations to show how different objectives affects different statistics related to the game result.
+
+I plotted a grouped bar plot of the distribution of teams that won or lost based on whether or not the first baron was killed.
+
+<iframe
+  src="assets/fig-firstbaron-result.html"
+  width="800"
+  height="425"
+  frameborder="0"
+></iframe>
+
+The plot clearly shows that teams that killed the first baron won more times than lost. Consequently, the teams that did not kill the first baron lost more times than won.
+
+Next, I plotted the distribution of the number of kills per team based on whether or not the first baron was killed.
+
+<iframe
+  src="assets/fig-firstbaron-kills.html"
+  width="800"
+  height="425"
+  frameborder="0"
+></iframe>
+
+As expected, the plot shows that teams that killed the first baron had a higher average number of kills. This aligns with the fact that Baron provides teams with buffs that make it easier to win fights.
+
