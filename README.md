@@ -23,13 +23,13 @@ The dataset has a total of 150180 rows and 161 columns. For each match, there ar
 | `ban5` | fifth champion team banned |
 | `result` | outcome of game (0 if lost, 1 if won) |
 | `kills` | total number of kills per team                                   |
-| `firstdragon` | whether or not team killed the first dragon (0 if no, 1 if yes) |
+| `firstdragon` | whether or not team killed the first dragon, monsters that give small buffs when killed (0 if no, 1 if yes) |
 | `dragons` | total number of dragons killed per team |
-| `firstherald` | whether or not team killed the first herald (0 if no, 1 if yes) |
+| `firstherald` | whether or not team killed the first herald, a monster captured after killed and redeployable to break towers (0 if no, 1 if yes) |
 | `firstbaron` | whether or not team killed the first baron (0 if no, 1 if yes) |
 | `barons` | number of barons killed per team|
-| `towers` | number of towers broken per team |
-| `inhibitors` | number of inhibitors broken per team |
+| `towers` | number of towers broken per team. towers are breakable structures that defend Nexus, |
+| `inhibitors` | number of inhibitors broken per team. inhibitors are breakable structure that spawns buffed minions in the lane in which it was broken |
 
 ---
 
@@ -58,7 +58,7 @@ First I plotted a histogram of the distribution of Barons killed.
 <iframe
   src="assets/fig-baron-kills.html"
   width="800"
-  height="425"
+  height="430"
   frameborder="0"
 ></iframe>
 
@@ -69,7 +69,7 @@ Then I plotted a histogram of the distribution of dragons killed. Killing dragon
 <iframe
   src="assets/fig-dragon-kills.html"
   width="800"
-  height="425"
+  height="430"
   frameborder="0"
 ></iframe>
 
@@ -80,7 +80,7 @@ I also plotted the distribution of towers broken. Towers are powerful structures
 <iframe
   src="assets/fig-towers-broken.html"
   width="800"
-  height="425"
+  height="430"
   frameborder="0"
 ></iframe>
 
@@ -91,7 +91,7 @@ Lastly, I plotted the distribution of inhibitors broken. Inhibitors are another 
 <iframe
   src="assets/fig-inhibitors-broken.html"
   width="800"
-  height="425"
+  height="430"
   frameborder="0"
 ></iframe>
 
@@ -106,7 +106,7 @@ I plotted a grouped bar plot of the distribution of teams that won or lost based
 <iframe
   src="assets/fig-firstbaron-result.html"
   width="800"
-  height="425"
+  height="430"
   frameborder="0"
 ></iframe>
 
@@ -117,9 +117,39 @@ Next, I plotted the distribution of the number of kills per team based on whethe
 <iframe
   src="assets/fig-firstbaron-kills.html"
   width="800"
-  height="425"
+  height="430"
   frameborder="0"
 ></iframe>
 
 As expected, the plot shows that teams that killed the first baron had a higher average number of kills. This aligns with the fact that Baron provides teams with buffs that make it easier to win fights.
 
+Similarly, I plotted the distribution of the number of kills per team based on the number of towers broken.
+
+<iframe
+  src="assets/fig-tower-kills.html"
+  width="800"
+  height="430"
+  frameborder="0"
+></iframe>
+
+There is a clear increase in the number of kills as the number of towers broken increases. This is consistent with the fact that the more kills a team has, the more towers they can break as enemies would not be able to defend them while waiting to respawn.
+
+### Interesting Aggregates
+
+| result   |   barons |   dragons |   firstbaron |   firstdragon |   firstherald |   inhibitors |   kills |   towers |
+|:---------|---------:|----------:|-------------:|--------------:|--------------:|-------------:|--------:|---------:|
+| False    |  0.22331 |   1.44926 |     0.142629 |      0.422802 |      0.417059 |     0.118528 |  9.4759 |  2.86095 |
+| True     |  1.127   |   3.04406 |     0.804745 |      0.57701  |      0.582659 |     1.75108  | 19.7113 |  9.24572 |
+
+This pivot table is indexed by the `result` and has the averages of the columns `dragons`, `barons`, `towers`, `inhibitors`, `firstdragon`, `firstherald`, `firstbaron`. The columns `firstbaron`, `firstdragon`, and `firstherald` show that 80% of teams that killed the first baron won the game and 58% of teams that killed the first dragon or killed the first herald won the game. Although these winrates are all positive for teams that are the first to kill monster objectives, the winrate for `firstbaron` is much higher, indicating that is the most important and game changing monster objective. Also note that teams that lose, on average, kill close to zero Barons and break close to zero inhibitors. On the other hand, `dragons` shows that losing teams kill at least 1 dragon on average, which suggests that killing one dragon is not as significant as killing one baron. Additionally, the `towers` column shows that winning teams break far more towers than losing teams, with an approximate difference of 6.39 on average.
+
+
+## Assessment of Missingness
+
+### NMAR Analysis
+
+I believe that the column `ban5` is NMAR, or not missing at random, because there seems to be no apparent trend or association with any other columns. Therefore, the missingness of the `ban5` column depends on the value of `ban5` itself. What this means is that `ban5` could be missing because a team either purposely chose to not ban a fifth champion, or they simply forgot to. An additonal column, `prefer_to_ban`, for example, can be obtained which is True for teams that prefer banning champions and False for teams that do not prefer banning champions. This would make `ban5` MAR on `prefer_to_ban`, instead of NMAR.
+
+### Missing Dependency
+
+In the original dataset, I found that missingness of column `pick1` seemed to 
