@@ -56,7 +56,18 @@ For my univariate analysis, I decided to look at the distributions of different 
 First I plotted a histogram of the distribution of Barons killed.
 
 <iframe
-  src="assets/fig_baron_kills.html"
+  src="assets/fig-baron-kills.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+This histogram is right skewed and shows that zero and one were the most common number of barons killed. This makes sense as the majority of the time, a team either kills no barons and loses or kills one baron and wins shortly after, making it less common for more than one baron to be killed a game.
+
+Then I plotted a histogram of the distribution of Dragons killed.
+
+<iframe
+  src="assets/fig-dragon-kills.html"
   width="800"
   height="600"
   frameborder="0"
