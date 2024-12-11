@@ -213,7 +213,7 @@ After performing a permutation test with these parameters, I plotted the result:
 
 <iframe
   src="assets/fig-hypothesis-test.html"
-  width="800"
+  width="950"
   height="430"
   frameborder="0"
 ></iframe>
@@ -229,3 +229,9 @@ Knowing how important objectives are to winning in League of Legends, I wanted t
 ---
 
 ## Baseline Model
+
+When creating my baseline model, I decided to use a Decision Tree Classifier. For my features, I chose `side`, `firstbaron`, and `firstdragon`. All three of these features are nominal because they are categorical but do not have any inherent ordering to them. As a result, I performed One-Hot Encoding on them. After splitting the data into training and test sets and fitting my model on the training set, I obtained an accuracy of 0.8265. This means that my model was able to correctly predict 82.65% of data. I believe that my current model is good because the features used are predictive of outcome and the resulting accuracy is fairly strong. However, the model can be improved by using a more complex model than Decision Tree Classifier and adding additional features.
+
+---
+
+## Final Model
