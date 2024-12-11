@@ -198,9 +198,9 @@ The plot shows that the observed test statistic, 0.0032, does not deviate much f
 
 In order to further my analysis on the effect of objectives on the outcome of the game, I conducted a hypothesis test with the following parameters:
 
-- Null Hypothesis: There is no difference in the proportion of wins between games where the first Baron is killed and games where it is not.
+- Null Hypothesis: In the population, the proportion of wins between games where the first Baron is killed and games where it is not have the same distribution, and the observed differences in our samples are due to random chance.
 
-- Alternative Hypothesis: The proportion of wins is higher for games where the first Baron is killed.
+- Alternative Hypothesis: In the population, the proportion of wins is higher for games where the first Baron is killed. The observed difference in our samples cannot be explained by random chance alone.
 
 - Test Statistic: Difference of proportions of games won by the team that killed the first Baron and proportion of games won by the team that **did not** kill the first Baron.
 
@@ -208,3 +208,11 @@ In order to further my analysis on the effect of objectives on the outcome of th
 
 After performing a permutation test with these parameters, I plotted the result:
 
+<iframe
+  src="assets/fig-hypothesis-test.html"
+  width="800"
+  height="430"
+  frameborder="0"
+></iframe>
+
+The chance of getting the observed test statistic is clearly rare under the null hypothesis. The resulting p-value is 0.00. Therefore, I reject the null hypothesis that the 
